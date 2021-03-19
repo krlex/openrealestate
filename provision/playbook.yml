@@ -1,0 +1,10 @@
+---
+- name: Installation Open-Real-Estate
+  hosts: all
+  roles:
+    - common
+    - mysql
+    - php
+    - apache2
+    - ore
+

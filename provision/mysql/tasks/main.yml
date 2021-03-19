@@ -1,0 +1,32 @@
+---
+- name: mysql installation
+  become: yes
+  with_items: "{{ mysql_packages }}"
+  package:
+    pkg: "{{ item.name }}"
+    state: latest
+
+- name: mysql starting
+  become: yes
+  service:
+    name: mysql
+    state: started
+
+- name: Git clone base config
+  become: yes
+  git:
+    repo: "https://github.com/krlex/DataBase-scripts/"
+    dest: "/tmp/mariadb/"
+
+
+- name: Confing mariadb
+  become: yes
+  command: "/tmp/mariadb/create-mariadb-ansible.sh openrealestatedb user password"
+
+- name: remove mariadb
+  become: yes
+  file:
+    path: "/tmp/mariadb/"
+    state: absent
+
+

@@ -1,0 +1,7 @@
+---
+- name: Common installation
+  become: yes
+  with_items: "{{ common_packages }}"
+  package:
+    pkg: "{{ item.name }}"
+    state: present

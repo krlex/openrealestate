@@ -1,0 +1,7 @@
+---
+- name: PHP installation
+  become: yes
+  with_items: "{{ php_packages }}"
+  package:
+    pkg: "{{ item.name }}"
+    state: latest

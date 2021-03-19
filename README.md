@@ -13,6 +13,8 @@ if you want to use pro version go to:
 or
 ```
 git clone https://github.com/krlex/openrealestate
+cd openrealestate/
+vagrant up
 ```
 And than you go to your browser for example:
 

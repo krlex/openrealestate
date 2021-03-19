@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    DocumentRoot /var/www/html/openrealestate/
+    ServerName www.example.com
+<Directory /var/www/html/openrealestate/>
+    Options FollowSymLinks
+    AllowOverride All
+    Order allow,deny
+    allow from all
+</Directory>
+    ErrorLog /var/log/apache2/openrealestate-error_log
+    CustomLog /var/log/apache2/openrealestate-access_log common
+</VirtualHost>
+
