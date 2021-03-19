@@ -1,2 +1,20 @@
 ---
-# tasks file for mysql
+- name: apache installation
+  become: yes
+  with_items: "{{ apache2_packages }}"
+  package:
+    pkg: "{{ item.name }}"
+    state: latest
+
+- name: setup Apache2 template
+  become: yes
+  template:
+    src: "../templates/openrealestate.conf.j2"
+    dest: "/etc/apache2/sites-available/openrealestate.conf"
+
+- name: apache2 starting
+  become: yes
+  service:
+    name: apache2
+    state: started
+

@@ -1,5 +1,4 @@
 ---
-
 - name: Installation Open-Real-Estate
   hosts: all
   roles:

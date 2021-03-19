@@ -1,2 +1,3 @@
----
-# vars file for mysql
+apache2_packages:
+  - name: apache2
+  - name: libapache2-mod-php

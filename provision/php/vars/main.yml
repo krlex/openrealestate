@@ -1,2 +1,7 @@
----
-# vars file for php
+php_packages:
+  - name: php
+  - name: mcrypt
+  - name: php-mbstring
+  - name: php-mysql
+  - name: php-gd
+  - name: php-curl

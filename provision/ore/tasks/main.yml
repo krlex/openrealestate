@@ -1,2 +1,65 @@
 ---
-# tasks file for ore
+- name: create directory openrealestate
+  become: yes
+  file:
+    path: "/var/www/html/openrealestate"
+    mode: "777"
+    state: directory
+
+- name: Download OpenRealEstate
+  become: yes
+  get_url:
+    url: "http://open-real-estate.info/files/OpenRealEstateV1.34.0_en.zip"
+    dest: "/tmp/"
+
+- name: Unzip OpenRealEstate
+  become: yes
+  unarchive:
+    src: "/tmp/OpenRealEstateV1.34.0_en.zip"
+    dest: "/var/www/html/openrealestate"
+    remote_src: yes
+
+- name: Set permissions
+  become: yes
+  file:
+    path: "/var/www/html/openrealestate/*"
+    owner: "www-data"
+    group: "www-data"
+    mode: "777"
+    state: directory
+
+- name: Set permissions for cron
+  become: yes
+  file:
+    path: "/var/www/html/openrealestate/protected/config/cron.php"
+    owner: "www-data"
+    group: "www-data"
+    mode: "666"
+
+- name: Set permissions for db
+  become: yes
+  file:
+    path: "/var/www/html/openrealestate/protected/config/db.php"
+    owner: "www-data"
+    group: "www-data"
+    mode: "666"
+
+- name: Set permissions
+  become: yes
+  file:
+    path: "/var/www/html/openrealestate"
+    owner: "www-data"
+    group: "www-data"
+    state: directory
+
+- name: a2enmod rewrite
+  become: yes
+  command: "a2enmod rewrite"
+
+- name: a2ensite openrealestate
+  become: yes
+  command: "a2ensite openrealestate"
+
+- name: reload apache2
+  become: yes
+  command: "systemctl reload apache2"

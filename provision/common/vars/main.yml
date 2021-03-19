@@ -1,2 +1,7 @@
----
-# vars file for common
+common_packages:
+  - name: vim
+  - name: net-tools
+  - name: git
+  - name: wget
+  - name: curl
+  - name: unzip
