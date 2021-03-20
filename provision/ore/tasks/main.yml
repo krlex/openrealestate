@@ -19,38 +19,23 @@
     dest: "/var/www/html/openrealestate"
     remote_src: yes
 
-- name: Set permissions
+- name: Set permissions 777
   become: yes
+  with_items: "{{ default_permissions }}"
   file:
-    path: "/var/www/html/openrealestate/*"
+    path: "{{ item.name }}"
     owner: "www-data"
     group: "www-data"
     mode: "777"
-    state: directory
 
-- name: Set permissions for cron
+- name: Set permissions for cron and db in 666
   become: yes
+  with_items: "{{ cron_db }}"
   file:
-    path: "/var/www/html/openrealestate/protected/config/cron.php"
+    path: "{{ item.name }}"
     owner: "www-data"
     group: "www-data"
     mode: "666"
-
-- name: Set permissions for db
-  become: yes
-  file:
-    path: "/var/www/html/openrealestate/protected/config/db.php"
-    owner: "www-data"
-    group: "www-data"
-    mode: "666"
-
-- name: Set permissions
-  become: yes
-  file:
-    path: "/var/www/html/openrealestate"
-    owner: "www-data"
-    group: "www-data"
-    state: directory
 
 - name: a2enmod rewrite
   become: yes
