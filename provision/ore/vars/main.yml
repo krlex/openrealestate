@@ -1,2 +1,26 @@
----
-# vars file for ore
+default_permissions:
+  - name:  /var/www/html/openrealestate/assets
+  - name:  /var/www/html/openrealestate/protected/_ore_backups
+  - name:  /var/www/html/openrealestate/protected/runtime
+  - name:  /var/www/html/openrealestate/protected/runtime/cache
+  - name:  /var/www/html/openrealestate/uploads
+  - name:  /var/www/html/openrealestate/uploads/ava
+  - name:  /var/www/html/openrealestate/uploads/editor
+  - name:  /var/www/html/openrealestate/uploads/iconsmap
+  - name:  /var/www/html/openrealestate/uploads/entries
+  - name:  /var/www/html/openrealestate/uploads/objects
+  - name:  /var/www/html/openrealestate/uploads/qrcodes
+  - name:  /var/www/html/openrealestate/uploads/video
+  - name:  /var/www/html/openrealestate/uploads/guestad
+  - name:  /var/www/html/openrealestate/uploads/editor/.thumbs/files
+  - name:  /var/www/html/openrealestate/uploads/editor/.thumbs/flash
+  - name:  /var/www/html/openrealestate/uploads/editor/.thumbs/images
+  - name:  /var/www/html/openrealestate/uploads/editor/files
+  - name:  /var/www/html/openrealestate/uploads/editor/flash
+  - name:  /var/www/html/openrealestate/uploads/editor/images
+  - name:  /var/www/html/openrealestate/uploads/document
+  - name:  /var/www/html/openrealestate/uploads/logs
+
+cron_db:
+  - name: /var/www/html/openrealestate/protected/config/cron.php
+  - name: /var/www/html/openrealestate/protected/config/db.php
