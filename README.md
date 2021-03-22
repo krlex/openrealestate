@@ -1,7 +1,7 @@
 # Open Real Estate in Vagrant box
 
-this installed in box and you can use free version of Open Real estate platform
-if you want to use pro version go to:
+This with installed vagrant box and ansible installation you can use and try
+free version of Open Real estate platform. Or if you want to use pro version go to office site 
 
 [OpenRealEstate](https://open-real-estate.info)
 
